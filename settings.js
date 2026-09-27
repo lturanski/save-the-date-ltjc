@@ -1,10 +1,10 @@
 // Edit this file to personalize your page. Keep quotation marks around text.
 window.SAVE_THE_DATE = {
-  names: "Your Name & Your Partner",
+  names: "Julia & Luke",
   // Use YYYY-MM-DD once your date is confirmed; leave blank to disable calendars.
-  date: "",
+  date: "2027-06-26",
   dateLabel: "Wedding date to come",
-  location: "City, State · Venue to come",
+  location: "The Surf Hotel · Buena Vista, Colorado",
   message: "We’re getting married! We’d love to celebrate with you. Formal invitation to follow.",
   // Add your own photos to the assets folder, then list them here.
   // Example: { src: "assets/luke-and-julia.jpg", alt: "Luke and Julia in the mountains" }
