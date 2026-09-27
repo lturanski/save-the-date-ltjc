@@ -9,6 +9,26 @@
   byId("message").textContent = config.message || "Formal invitation to follow.";
   byId("date").textContent = config.dateLabel || "Wedding date to come";
 
+  const photos = Array.isArray(config.photos) ? config.photos.slice(0, 4) : [];
+  const gallery = byId("photo-gallery");
+  for (const [index, photo] of photos.entries()) {
+    if (!photo || typeof photo.src !== "string" || !photo.src.trim()) continue;
+    const figure = document.createElement("figure");
+    figure.className = `photo-print photo-print-${index + 1}`;
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = typeof photo.alt === "string" ? photo.alt : "";
+    img.loading = index === 0 ? "eager" : "lazy";
+    figure.append(img);
+    if (typeof photo.caption === "string" && photo.caption.trim()) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = photo.caption;
+      figure.append(caption);
+    }
+    gallery.append(figure);
+  }
+  gallery.hidden = gallery.children.length === 0;
+
   // UTC is used only to calculate date-only values; the event is all-day everywhere.
   const date = /^\d{4}-\d{2}-\d{2}$/.test(config.date || "")
     ? new Date(`${config.date}T00:00:00Z`) : null;

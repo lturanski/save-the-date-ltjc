@@ -1,29 +1,45 @@
-/* Personalize these colors and fonts first. No build tools required. */
 :root {
-  --background: #f3f6fa;
-  --paper: #ffffff;
-  --text: #192b40;
-  --accent: #234468;
-  --line: #d7e0e9;
+  --paper: rgba(255, 248, 229, .91);
+  --paper-solid: #fff8e5;
+  --ink: #173c36;
+  --sun: #d95d39;
+  --sun-dark: #a9432c;
+  --line: rgba(23, 60, 54, .25);
+  --shadow: 0 24px 70px rgba(7, 32, 30, .35);
   --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-body { margin: 0; background: var(--background); color: var(--text); font: 1rem/1.65 var(--font); }
-main { width: min(100% - 2rem, 42rem); margin: 2rem auto; padding: clamp(1.25rem, 5vw, 3rem); background: var(--paper); border: 1px solid var(--line); border-radius: 1rem; }
+html { min-height: 100%; background: #173c36 url("assets/mountain-sunset-background.png") center center / cover fixed no-repeat; }
+body { min-height: 100vh; margin: 0; padding: clamp(1rem, 4vw, 3rem) 0; color: var(--ink); font: 1rem/1.65 var(--font); }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(18, 58, 54, .05), rgba(9, 35, 31, .32)); pointer-events: none; }
+main { width: min(100% - 2rem, 43rem); margin: 0 auto; padding: clamp(1.5rem, 6vw, 3.5rem); background: var(--paper); border: 1px solid rgba(255, 248, 229, .75); border-radius: 1.25rem; box-shadow: var(--shadow); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 header { text-align: center; }
-.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .875rem; font-weight: 650; }
-h1 { font-family: Georgia, serif; font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.15; font-weight: 400; overflow-wrap: anywhere; }
-h2 { font-size: 1.25rem; line-height: 1.35; }
-.date { font-size: 1.25rem; font-weight: 600; }
-section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1rem; }
+.eyebrow { margin-top: 0; color: var(--sun-dark); text-transform: uppercase; letter-spacing: .2em; font-size: .875rem; font-weight: 750; }
+h1 { margin: .55em 0 .45em; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.35rem, 8vw, 4.25rem); line-height: 1.02; font-weight: 400; overflow-wrap: anywhere; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; line-height: 1.25; }
+.date { color: var(--sun-dark); font-size: 1.25rem; font-weight: 750; }
+section:not(.photo-gallery) { border-top: 1px solid var(--line); margin-top: 2.25rem; padding-top: 1.25rem; }
+.photo-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.75rem, 3vw, 1.5rem); margin: 2.5rem auto 1.5rem; align-items: center; }
+.photo-print { margin: 0; padding: .55rem .55rem 1.5rem; background: var(--paper-solid); box-shadow: 0 12px 30px rgba(7, 32, 30, .3); transform: rotate(-2deg); }
+.photo-print:nth-child(even) { transform: rotate(2.5deg) translateY(.7rem); }
+.photo-print img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo-print figcaption { padding-top: .65rem; font-family: Georgia, serif; text-align: center; }
 .actions { display: flex; gap: .75rem; flex-wrap: wrap; }
-.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .7rem 1rem; background: var(--accent); color: white; border: 1px solid var(--accent); border-radius: .5rem; text-decoration: none; font-weight: 600; text-align: center; }
-.secondary { color: var(--accent); background: white; }
+.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .75rem 1.1rem; background: var(--sun); color: white; border: 1px solid var(--sun); border-radius: 999px; text-decoration: none; font-weight: 700; text-align: center; box-shadow: 0 4px 14px rgba(169, 67, 44, .22); }
+.secondary { color: var(--sun-dark); background: transparent; border-color: var(--sun-dark); box-shadow: none; }
 a:hover { filter: brightness(.9); }
-a:focus-visible { outline: 3px solid #cf7700; outline-offset: 4px; }
-.notice { background: var(--background); padding: 1rem; border-radius: .5rem; }
+a:focus-visible { outline: 3px solid #173c36; outline-offset: 4px; }
+.notice { background: rgba(23, 60, 54, .08); padding: 1rem; border-radius: .65rem; }
 .small, footer { font-size: .875rem; }
-footer { margin-top: 2rem; text-align: center; }
+footer { margin-top: 2.5rem; text-align: center; letter-spacing: .08em; text-transform: uppercase; }
 iframe { display: block; width: 100%; height: 1100px; border: 0; margin-top: 1rem; }
-@media (max-width: 480px) { main { margin: 1rem auto; } .button { width: 100%; } .actions { flex-direction: column; } }
+@media (max-width: 560px) {
+  html { background-attachment: scroll; background-position: center top; }
+  body { padding: .75rem 0; }
+  main { width: min(100% - 1.5rem, 43rem); padding: 1.5rem 1.25rem 2rem; border-radius: .9rem; }
+  .button { width: 100%; }
+  .actions { flex-direction: column; }
+  .photo-gallery { margin-inline: -.25rem; }
+}
+@media (prefers-reduced-transparency: reduce) { main { background: var(--paper-solid); backdrop-filter: none; } }
