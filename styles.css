@@ -1,0 +1,29 @@
+/* Personalize these colors and fonts first. No build tools required. */
+:root {
+  --background: #f3f6fa;
+  --paper: #ffffff;
+  --text: #192b40;
+  --accent: #234468;
+  --line: #d7e0e9;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--background); color: var(--text); font: 1rem/1.65 var(--font); }
+main { width: min(100% - 2rem, 42rem); margin: 2rem auto; padding: clamp(1.25rem, 5vw, 3rem); background: var(--paper); border: 1px solid var(--line); border-radius: 1rem; }
+header { text-align: center; }
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .875rem; font-weight: 650; }
+h1 { font-family: Georgia, serif; font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.15; font-weight: 400; overflow-wrap: anywhere; }
+h2 { font-size: 1.25rem; line-height: 1.35; }
+.date { font-size: 1.25rem; font-weight: 600; }
+section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1rem; }
+.actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: .7rem 1rem; background: var(--accent); color: white; border: 1px solid var(--accent); border-radius: .5rem; text-decoration: none; font-weight: 600; text-align: center; }
+.secondary { color: var(--accent); background: white; }
+a:hover { filter: brightness(.9); }
+a:focus-visible { outline: 3px solid #cf7700; outline-offset: 4px; }
+.notice { background: var(--background); padding: 1rem; border-radius: .5rem; }
+.small, footer { font-size: .875rem; }
+footer { margin-top: 2rem; text-align: center; }
+iframe { display: block; width: 100%; height: 1100px; border: 0; margin-top: 1rem; }
+@media (max-width: 480px) { main { margin: 1rem auto; } .button { width: 100%; } .actions { flex-direction: column; } }

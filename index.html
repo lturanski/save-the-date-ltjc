@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Save the date. Wedding details and mailing address collection.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Save the date</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23234468'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='24' fill='white'%3E%E2%99%A5%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="settings.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Save the date</p>
+      <h1 id="names">Your Name &amp; Your Partner</h1>
+      <p class="date" id="date">Wedding date to come</p>
+      <p id="location">City, State · Venue to come</p>
+      <p id="message">We’re getting married! Formal invitation to follow.</p>
+    </header>
+    <section aria-labelledby="calendar-title">
+      <h2 id="calendar-title">Keep the day free</h2>
+      <p id="calendar-pending">Calendar options will be available once our date is confirmed.</p>
+      <div class="actions" id="calendar-actions" hidden>
+        <a class="button secondary" id="google-calendar" target="_blank" rel="noopener noreferrer">Google Calendar ↗</a>
+        <a class="button secondary" id="calendar-download" download="save-the-date.ics">Apple / Outlook (.ics)</a>
+      </div>
+    </section>
+    <section aria-labelledby="address-title">
+      <h2 id="address-title">Where should we send your invitation?</h2>
+      <p>Share your household’s mailing address so we can send your invitation.</p>
+      <p id="form-pending" class="notice">Address collection is coming soon. Please check back here.</p>
+      <a id="form-link" class="button" hidden target="_blank" rel="noopener noreferrer">Share your mailing address ↗</a>
+      <p id="form-note" class="small" hidden>Opens Google Forms. After submitting, Google Forms will confirm your response.</p>
+      <div id="embed-container" hidden></div>
+    </section>
+    <footer>Formal invitation to follow.</footer>
+    <noscript><p class="notice">Please enable JavaScript to see the latest wedding details, calendar options, and address form.</p></noscript>
+  </main>
+</body>
+</html>
