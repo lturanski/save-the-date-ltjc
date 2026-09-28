@@ -7,9 +7,9 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Save the date</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23234468'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='24' fill='white'%3E%E2%99%A5%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <script src="settings.js?v=4" defer></script>
-  <script src="app.js?v=5" defer></script>
+  <script src="app.js?v=6" defer></script>
 </head>
 <body>
   <div class="envelope-scene" id="envelope-scene">
@@ -29,32 +29,25 @@
     </button>
   </div>
 
-  <main class="invitation" id="invitation">
-    <header class="invitation-header">
-      <p class="eyebrow">Save the date</p>
-      <h1 id="names">Your Name &amp; Your Partner</h1>
-      <p class="date" id="date">Wedding date to come</p>
-      <p id="location">City, State · Venue to come</p>
-      <div class="ornament" aria-hidden="true"><span></span></div>
-      <p class="message" id="message">We’re getting married! Formal invitation to follow.</p>
-    </header>
-    <section class="photo-gallery" id="photo-gallery" aria-label="Photos" hidden></section>
-    <section class="calendar" aria-label="Add this date to your calendar">
-      <p id="calendar-pending">Calendar links coming soon.</p>
-      <div class="calendar-actions" id="calendar-actions" hidden>
-        <span>Add to calendar</span>
-        <a id="google-calendar" target="_blank" rel="noopener noreferrer">Google</a>
-        <span aria-hidden="true">·</span>
-        <a id="calendar-download" download="save-the-date.ics">Apple / Outlook</a>
-      </div>
-    </section>
-    <footer class="invitation-footer">
-      <p>Formal invitation to follow</p>
-      <p id="form-pending" class="quiet">Mailing address link coming soon.</p>
-      <p class="quiet"><a id="form-link" hidden target="_blank" rel="noopener noreferrer">Share your mailing address</a></p>
+  <main id="invitation">
+    <article class="invitation-card">
+      <img class="couple-photo" src="assets/julia-and-luke.png" alt="Julia and Luke standing together at a celebration">
+      <div class="photo-shade" aria-hidden="true"></div>
+      <header class="invitation-header">
+        <p class="save-title"><span>Save</span> <i>the</i> <span>Date</span></p>
+        <div class="ornament" aria-hidden="true"></div>
+        <h1 id="names">Your Name &amp; Your Partner</h1>
+        <p class="date" id="date">Wedding date to come</p>
+        <p id="location">City, State · Venue to come</p>
+      </header>
+      <footer class="card-footer">Formal invitation to follow</footer>
+    </article>
+    <aside class="address-link" aria-label="Mailing address">
+      <p id="form-pending">Mailing address link coming soon.</p>
+      <a id="form-link" hidden target="_blank" rel="noopener noreferrer">Provide your mailing address</a>
       <p id="form-note" hidden>Opens Google Forms.</p>
       <div id="embed-container" hidden></div>
-    </footer>
+    </aside>
     <noscript><p class="notice">Please enable JavaScript to see the latest wedding details, calendar options, and address form.</p></noscript>
   </main>
 </body>

@@ -20,28 +20,7 @@
   byId("names").textContent = names;
   document.title = `${names} · Save the date`;
   byId("location").textContent = config.location || "Location to come";
-  byId("message").textContent = config.message || "Formal invitation to follow.";
   byId("date").textContent = config.dateLabel || "Wedding date to come";
-
-  const photos = Array.isArray(config.photos) ? config.photos.slice(0, 4) : [];
-  const gallery = byId("photo-gallery");
-  for (const [index, photo] of photos.entries()) {
-    if (!photo || typeof photo.src !== "string" || !photo.src.trim()) continue;
-    const figure = document.createElement("figure");
-    figure.className = `photo-print photo-print-${index + 1}`;
-    const img = document.createElement("img");
-    img.src = photo.src;
-    img.alt = typeof photo.alt === "string" ? photo.alt : "";
-    img.loading = index === 0 ? "eager" : "lazy";
-    figure.append(img);
-    if (typeof photo.caption === "string" && photo.caption.trim()) {
-      const caption = document.createElement("figcaption");
-      caption.textContent = photo.caption;
-      figure.append(caption);
-    }
-    gallery.append(figure);
-  }
-  gallery.hidden = gallery.children.length === 0;
 
   // UTC is used only to calculate date-only values; the event is all-day everywhere.
   const date = /^\d{4}-\d{2}-\d{2}$/.test(config.date || "")
@@ -50,34 +29,6 @@
     byId("date").textContent = new Intl.DateTimeFormat("en-US", {
       weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
     }).format(date);
-    const compact = (value) => value.toISOString().slice(0, 10).replaceAll("-", "");
-    const start = compact(date);
-    const end = compact(new Date(date.valueOf() + 86400000));
-    const title = `${names} — Wedding`;
-    const description = config.message || "Formal invitation to follow.";
-    const params = new URLSearchParams({ action: "TEMPLATE", text: title,
-      dates: `${start}/${end}`, details: description, location: config.location || "" });
-    byId("google-calendar").href = `https://calendar.google.com/calendar/render?${params}`;
-    const escape = (value) => String(value).replaceAll("\\", "\\\\").replace(/\r?\n|\r/g, "\\n").replaceAll(";", "\\;").replaceAll(",", "\\,");
-    // Fold by UTF-8 bytes so long names and emoji produce valid iCalendar lines.
-    const fold = (line) => {
-      let output = "", bytes = 0;
-      for (const char of line) {
-        const size = new TextEncoder().encode(char).length;
-        if (bytes + size > 75) { output += "\r\n "; bytes = 1; }
-        output += char; bytes += size;
-      }
-      return output;
-    };
-    const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Save the Date//EN", "CALSCALE:GREGORIAN",
-      "BEGIN:VEVENT", `UID:${start}-${encodeURIComponent(names)}@save-the-date`, `DTSTAMP:${stamp}`,
-      `DTSTART;VALUE=DATE:${start}`, `DTEND;VALUE=DATE:${end}`, `SUMMARY:${escape(title)}`,
-      `LOCATION:${escape(config.location || "")}`, `DESCRIPTION:${escape(description)}`,
-      "TRANSP:TRANSPARENT", "END:VEVENT", "END:VCALENDAR"].map(fold).join("\r\n") + "\r\n";
-    byId("calendar-download").href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-    byId("calendar-actions").hidden = false;
-    byId("calendar-pending").hidden = true;
   }
 
   function formURL(raw, embed = false) {
