@@ -23,7 +23,7 @@ body.invitation-open #invitation { opacity: 1; transform: none; }
 .save-title span { font-size: clamp(2.2rem, 9.5vw, 4.6rem); letter-spacing: .08em; text-transform: uppercase; }
 .save-title i { font-size: clamp(1.35rem, 5.5vw, 2.75rem); font-weight: 400; text-transform: lowercase; }
 .ornament { width: 4.5rem; height: 1px; margin: clamp(1.25rem, 4vw, 2rem) auto; background: rgba(255,255,255,.8); }
-.wedding-details { position: absolute; top: clamp(22rem, 53vw, 29rem); left: 1rem; right: 1rem; }
+.wedding-details { position: absolute; top: clamp(22rem, 53vw, 37rem); left: 1rem; right: 1rem; }
 h1 { margin: 0 0 .75rem; font-family: var(--font); font-size: clamp(.85rem, 3vw, 1.2rem); line-height: 1.2; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
 .date, #location { margin: .35rem 0; font-size: clamp(.7rem, 2.2vw, .95rem); font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
 .card-footer { position: absolute; z-index: 1; left: 1rem; right: 1rem; bottom: clamp(1.6rem, 5vw, 3rem); text-align: center; font-size: clamp(.7rem, 2.2vw, .9rem); font-weight: 750; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.8); }
