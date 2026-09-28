@@ -18,11 +18,12 @@ body.invitation-open #invitation { opacity: 1; transform: none; }
 .invitation-card { position: relative; min-height: min(52rem, calc(100vh - 6.5rem)); aspect-ratio: 4 / 5; overflow: hidden; background: #201b19; border: .5rem solid rgba(255, 248, 229, .92); box-shadow: var(--shadow); }
 .couple-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
 .photo-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 12, 10, .72) 0%, rgba(11, 12, 10, .28) 34%, transparent 58%, rgba(11, 12, 10, .14) 76%, rgba(11, 12, 10, .72) 100%); }
-.invitation-header { position: relative; z-index: 1; padding: clamp(2rem, 8vw, 4.25rem) 1.25rem 0; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.72); }
+.invitation-header { position: relative; z-index: 1; padding: clamp(2rem, 7vw, 3.75rem) 1.25rem 0; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.72); }
 .save-title { margin: 0; display: flex; justify-content: center; align-items: center; gap: clamp(.45rem, 2vw, .9rem); font-family: Georgia, "Times New Roman", serif; line-height: .85; }
 .save-title span { font-size: clamp(2.2rem, 9.5vw, 4.6rem); letter-spacing: .08em; text-transform: uppercase; }
 .save-title i { font-size: clamp(1.35rem, 5.5vw, 2.75rem); font-weight: 400; text-transform: lowercase; }
 .ornament { width: 4.5rem; height: 1px; margin: clamp(1.25rem, 4vw, 2rem) auto; background: rgba(255,255,255,.8); }
+.wedding-details { position: absolute; top: clamp(22rem, 53vw, 29rem); left: 1rem; right: 1rem; }
 h1 { margin: 0 0 .75rem; font-family: var(--font); font-size: clamp(.85rem, 3vw, 1.2rem); line-height: 1.2; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
 .date, #location { margin: .35rem 0; font-size: clamp(.7rem, 2.2vw, .95rem); font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
 .card-footer { position: absolute; z-index: 1; left: 1rem; right: 1rem; bottom: clamp(1.6rem, 5vw, 3rem); text-align: center; font-size: clamp(.7rem, 2.2vw, .9rem); font-weight: 750; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.8); }
