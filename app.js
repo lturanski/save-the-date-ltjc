@@ -2,6 +2,20 @@
   "use strict";
   const config = window.SAVE_THE_DATE || {};
   const byId = (id) => document.getElementById(id);
+  const envelopeScene = byId("envelope-scene");
+  const openInvitation = byId("open-invitation");
+  const revealInvitation = () => {
+    if (envelopeScene.classList.contains("is-opening")) return;
+    envelopeScene.classList.add("is-opening");
+    openInvitation.disabled = true;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.setTimeout(() => {
+      document.body.classList.add("invitation-open");
+      envelopeScene.classList.add("is-finished");
+      byId("invitation").focus({ preventScroll: true });
+    }, reducedMotion ? 20 : 1250);
+  };
+  openInvitation.addEventListener("click", revealInvitation);
   const names = config.names || "Your Name & Your Partner";
   byId("names").textContent = names;
   document.title = `${names} · Save the date`;
