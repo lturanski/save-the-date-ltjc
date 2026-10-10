@@ -29,6 +29,7 @@ h1 { margin: 0 0 .75rem; font-family: var(--font); font-size: clamp(.85rem, 3vw,
 .card-footer { position: absolute; z-index: 1; left: 1rem; right: 1rem; bottom: clamp(1.6rem, 5vw, 3rem); text-align: center; font-size: clamp(.7rem, 2.2vw, .9rem); font-weight: 750; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.8); }
 .address-link { padding: 1.25rem .75rem .25rem; text-align: center; font-size: .86rem; }
 .address-link p { margin: 0; }
+.address-link .lodging-note { max-width: 34rem; margin: 0 auto .8rem; color: rgba(255, 248, 229, .92); font-family: Georgia, "Times New Roman", serif; font-size: .82rem; line-height: 1.45; }
 .address-link a { color: var(--paper-solid); text-underline-offset: .28em; }
 .address-link a:hover { color: white; }
 a:focus-visible { outline: 3px solid var(--paper-solid); outline-offset: 4px; }
